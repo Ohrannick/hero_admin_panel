@@ -40,12 +40,16 @@ const HeroesList = () => {
       return <h5 className='text-center mt-5'>Героев пока нет</h5>;
     }
 
-    return arr.map(({ id, addHeroes, ...props }) => {
-      return <HeroesListItem key={id} {...props} addHeroes={addHeroes} />;
+    return arr.map(({ id, ...props }) => {
+      return (
+        <HeroesListItem key={id} id={id} removeHero={removeHero} {...props} />
+      );
     });
   };
 
-  const addHeroes = () => {};
+  const removeHero = () => {
+    dispatch({ type: 'REMOVE_HERO', payload: heroes.id });
+  };
 
   const elements = renderHeroesList(heroes);
   return <ul>{elements}</ul>;

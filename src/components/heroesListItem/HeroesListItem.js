@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-const HeroesListItem = ({ name, description, element }) => {
+const HeroesListItem = ({ id, name, description, element, removeHero }) => {
   let elementClassName;
+  console.log('id', id);
 
   switch (element) {
     case 'fire':
@@ -39,6 +40,7 @@ const HeroesListItem = ({ name, description, element }) => {
           type='button'
           className='btn-close btn-close'
           aria-label='Close'
+          onClick={() => removeHero(id)}
         ></button>
       </span>
     </li>

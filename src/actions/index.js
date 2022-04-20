@@ -16,3 +16,7 @@ export const heroesFetchingError = () => {
     type: 'HEROES_FETCHING_ERROR',
   };
 };
+
+export const removeHero = () => {
+  return;
+};
