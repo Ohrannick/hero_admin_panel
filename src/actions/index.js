@@ -18,5 +18,8 @@ export const heroesFetchingError = () => {
 };
 
 export const removeHero = () => {
-  return;
+  return {
+    type: 'REMOVE_HERO',
+    payload: heroes,
+  };
 };

@@ -6,6 +6,7 @@ import {
   heroesFetching,
   heroesFetched,
   heroesFetchingError,
+  removeHero,
 } from '../../actions';
 import HeroesListItem from '../heroesListItem/HeroesListItem';
 import Spinner from '../spinner/Spinner';
