@@ -23,10 +23,13 @@ const reducer = (state = initialState, action) => {
         heroesLoadingStatus: 'error',
       };
     case 'REMOVE_HERO':
+      console.log('reducer', action.payload, state.heroes);
       return {
-        ...state,
-        heroes: state.heroes.filter((hero) => hero.id !== action.id),
+        heroes: state.heroes.filter((hero) => hero.id !== action.payload),
       };
+    case 'ADD_HERO':
+      console.log('reducer', action.payload, state.heroes);
+      return { ...state, heroes: [...state.heroes, action.payload] };
     default:
       return state;
   }

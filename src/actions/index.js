@@ -17,9 +17,18 @@ export const heroesFetchingError = () => {
   };
 };
 
-export const removeHero = () => {
+export const removeHero = (id) => {
+  console.log('actions', id);
   return {
     type: 'REMOVE_HERO',
-    payload: heroes,
+    payload: id,
+  };
+};
+
+export const addHero = (hero) => {
+  console.log('actions', hero);
+  return {
+    type: 'ADD_HERO',
+    payload: hero,
   };
 };

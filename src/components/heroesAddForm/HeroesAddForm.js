@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 // Задача для этого компонента:
 // Реализовать создание нового героя с введенными данными. Он должен попадать
 // в общее состояние и отображаться в списке + фильтроваться
@@ -9,6 +11,9 @@
 // данных из фильтров
 
 const HeroesAddForm = () => {
+  const [newHero, setNesHero] = useState({});
+  const dispatch = useDispatch();
+
   return (
     <form className='border p-4 shadow-lg rounded'>
       <div className='mb-3'>
