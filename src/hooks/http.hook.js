@@ -42,7 +42,7 @@ export const useHttp = () => {
   };
 };
 
-// "new-heroes": [
+// "heroes": [
 //   {
 //     "id": 1,
 //     "name": "Первый герой",

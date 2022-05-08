@@ -73,6 +73,7 @@ const reducer = (state = initialState, action) => {
                 (item) => item.element === state.activeFilter
               ),
       };
+
     case 'REMOVE_HERO':
       console.log('reducer_remove', action.payload, state.heroes);
       // Формируем новый массив

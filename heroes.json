@@ -17,6 +17,12 @@
       "name": "Морской герой",
       "description": "Как аквамен, но не из DC",
       "element": "water"
+    },
+    {
+      "id": "38466a83-9bb7-4b64-8dce-96dc9deb7610",
+      "name": "ohrannick",
+      "description": "777",
+      "element": "water"
     }
   ],
   "filters": [
