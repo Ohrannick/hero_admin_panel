@@ -19,9 +19,10 @@ const HeroesAddForm = () => {
   const [heroDescr, setHeroDescr] = useState('');
   const [heroElement, setHeroElement] = useState('');
 
-  const { filters, filtersLoadingStatus, filteredHeroes } = useSelector(
-    (state) => state
+  const { filters, filtersLoadingStatus } = useSelector(
+    (state) => state.filters
   );
+  const { heroes } = useSelector((state) => state.heroes);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
@@ -34,8 +35,8 @@ const HeroesAddForm = () => {
       element: heroElement,
     };
 
-    let isOriginal = filteredHeroes.some((hero) => hero.name === newHero.name);
-    console.log('addHero', isOriginal, filteredHeroes, newHero);
+    let isOriginal = heroes.some((hero) => hero.name === newHero.name);
+    console.log('addHero', isOriginal, heroes, newHero);
     if (isOriginal) {
       alert('Герой с таким именем существует...');
     } else {
