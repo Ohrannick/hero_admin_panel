@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useHttp } from '../../hooks/http.hook';
-import { v4 as uuidv4 } from 'uuid';
-import { addHero } from '../../actions';
+import { nanoid } from '@reduxjs/toolkit';
+import { addHero, filteredHeroesSelector } from '../heroesList/heroesSlice';
+import store from '../../store';
+import { selectAll } from '../heroesFilters/filtersSlice';
 
 // Задача для этого компонента:
 // Реализовать создание нового героя с введенными данными. Он должен попадать
@@ -19,24 +21,24 @@ const HeroesAddForm = () => {
   const [heroDescr, setHeroDescr] = useState('');
   const [heroElement, setHeroElement] = useState('');
 
-  const { filters, filtersLoadingStatus } = useSelector(
-    (state) => state.filters
-  );
-  const { heroes } = useSelector((state) => state.heroes);
+  const filteredHeroes = useSelector(filteredHeroesSelector);
+
+  const { filtersLoadingStatus } = useSelector((state) => state.filters);
+  const filters = selectAll(store.getState());
   const dispatch = useDispatch();
   const { request } = useHttp();
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const newHero = {
-      id: uuidv4(),
+      id: nanoid(),
       name: heroName,
       description: heroDescr,
       element: heroElement,
     };
 
-    let isOriginal = heroes.some((hero) => hero.name === newHero.name);
-    console.log('addHero', isOriginal, heroes, newHero);
+    console.log('addHero', filteredHeroes, newHero);
+    let isOriginal = filteredHeroes.some((hero) => hero.name === newHero.name);
     if (isOriginal) {
       alert('Герой с таким именем существует...');
     } else {

@@ -1,27 +1,22 @@
-import classNames from 'classnames';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { activeFilterChanged, fetchFiltersHeroes } from '../../actions';
-import { useHttp } from '../../hooks/http.hook';
+// import store from '../../store';
+import classNames from 'classnames';
+
+import { filtersChanged, fetchFilters, selectAll } from './filtersSlice';
 import Spinner from '../spinner/Spinner';
 
-// Задача для этого компонента:
-// Фильтры должны формироваться на основании загруженных данных
-// Фильтры должны отображать только нужных героев при выборе
-// Активный фильтр имеет класс active
-// Изменять json-файл для удобства МОЖНО!
-// Представьте, что вы попросили бэкенд-разработчика об этом
-
 const HeroesFilters = () => {
-  const { filters, filtersLoadingStatus, activeFilter } = useSelector(
+  const { filtersLoadingStatus, activeFilter } = useSelector(
     (state) => state.filters
   );
+  // const filters = selectAll(store.getState());
+  const filters = useSelector(selectAll);
   const dispatch = useDispatch();
-  const { request } = useHttp();
 
   // Запрос на сервер для получения фильтров и последовательной смены состояния
   useEffect(() => {
-    dispatch(fetchFiltersHeroes(request));
+    dispatch(fetchFilters());
     // eslint-disable-next-line
   }, []);
 
@@ -47,7 +42,7 @@ const HeroesFilters = () => {
           key={name}
           className={btnClass}
           id={name}
-          onClick={() => dispatch(activeFilterChanged(name))}
+          onClick={() => dispatch(filtersChanged(name))}
         >
           {label}
         </button>

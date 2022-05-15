@@ -19,34 +19,45 @@
       "element": "water"
     },
     {
-      "id": "2ec93dd3-af3f-4e77-a7bd-b080fb3fdd23",
-      "name": "ohrannick",
-      "description": "all",
+      "id": "yHBfMdLDEb9xO6x3pQs1R",
+      "name": "HULK",
+      "description": "I am the best",
+      "element": "wind"
+    },
+    {
+      "id": "LQ5gMjFYyMg1o_qsK99xO",
+      "name": "Ohrannick",
+      "description": "Готов к подвигам и свершениям",
       "element": "earth"
     }
   ],
   "filters": [
     {
+      "id": "all",
       "name": "all",
       "label": "Все",
       "className": "btn-outline-dark"
     },
     {
+      "id": "fire",
       "name": "fire",
       "label": "Огонь",
       "className": "btn-danger"
     },
     {
+      "id": "water",
       "name": "water",
       "label": "Вода",
       "className": "btn-primary"
     },
     {
+      "id": "wind",
       "name": "wind",
       "label": "Ветер",
       "className": "btn-success"
     },
     {
+      "id": "earth",
       "name": "earth",
       "label": "Земля",
       "className": "btn-secondary"
